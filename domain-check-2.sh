@@ -297,7 +297,7 @@ check_domain_status()
     fi
 
     # Invoke whois to find the domain registrar and expiration date
-    #${WHOIS} -h ${WHOIS_SERVER} "=${1}" > ${WHOIS_TMP}
+#    ${WHOIS} -h ${WHOIS_SERVER} "=${1}" > ${WHOIS_TMP}
     # Let whois select server
     
     WHS="$(${WHOIS} -h "whois.iana.org" "${TLDTYPE}" | ${GREP} 'whois:' | ${AWK} '{print $2}')"
@@ -862,7 +862,7 @@ print_heading()
         if [ "${QUIET}" != "TRUE" ]
         then
                 printf "\n%-35s %-46s %-8s %-11s %-5s\n" "Domain" "Registrar" "Status" "Expires" "Days Left"
-                echo "----------------------------------- ---------------------------------------------- -------- ----------- ---------"
+                echo "!()!"
         fi
 }
 
@@ -880,7 +880,7 @@ prints()
     if [ "${QUIET}" != "TRUE" ]
     then
             MIN_DATE=$(echo $3 | ${AWK} '{ print $1, $2, $4 }')
-            printf "%-35s %-46s %-8s %-11s %-5s\n" "$1" "$5" "$2" "$MIN_DATE" "$4"
+            printf "%-35s!!!_!!!%-46s!!!_!!!%-8s!!!_!!!%-11s!!!_!!!%-5s\n" "$1" "$5" "$2" "$MIN_DATE" "$4"
     fi
 }
 
